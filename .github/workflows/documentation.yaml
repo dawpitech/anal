@@ -1,0 +1,20 @@
+name: ANAL Documentation
+on: [ push ]
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Generating build files"
+        run: "cmake -S . -B build"
+
+      - name: "Build docs"
+        run: "cmake --build build --target doc"
+
+      - name: "Archive html output"
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Documentation"
+          path: build/html
