@@ -19,16 +19,10 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            unzip
-            gcovr
-            ltrace
             valgrind
-            python311Packages.compiledb
-            man-pages
-            man-pages-posix
-            gdb
             mold
             cmake
+            doxygen
           ] ++ deps;
         };
 
