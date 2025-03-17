@@ -7,6 +7,9 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@v4
 
+      - name: "Installing doxygen"
+        run: "sudo apt update && sudo apt install -y clang doxygen cmake"
+
       - name: "Generating build files"
         run: "cmake -S . -B build"
 
