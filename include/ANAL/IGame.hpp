@@ -27,26 +27,27 @@ namespace anal
      */
     class IGame
     {
-        /**
-         * @exception Exception
-         * @brief Game exception
-         */
-        class Exception : public std::exception {};
+        public:
+            /**
+             * @exception Exception
+             * @brief Game exception
+             */
+            class Exception : public std::exception {};
 
-        /**
-         * @brief Process the Event send by the Renderer
-         */
-        virtual void processEvents(const std::vector<Event>&) = 0;
+            /**
+             * @brief Process the Event send by the Renderer
+             */
+            virtual void processEvents(const std::vector<Event>&) = 0;
 
-        /**
-         * @brief Tick the game
-         */
-        virtual void compute() = 0;
+            /**
+             * @brief Tick the game
+             */
+            virtual void compute() = 0;
 
-        /**
-         * @brief Render the game to the renderer sprite/text queue
-         */
-        virtual void render() = 0;
+            /**
+             * @brief Render the game to the renderer sprite/text queue
+             */
+            virtual void render() = 0;
     };
 }
 #endif //IGAME_HPP
