@@ -26,26 +26,27 @@ namespace anal
      */
     class ISprite
     {
-        ISprite() = default;
-        virtual ~ISprite() = default;
+        public:
+            ISprite() = default;
+            virtual ~ISprite() = default;
 
-        /**
-         * @exception Exception
-         * @brief Sprite exception
-         */
-        class Exception : public std::exception {};
+            /**
+             * @exception Exception
+             * @brief Sprite exception
+             */
+            class Exception : public std::exception {};
 
-        /**
-         * @brief Sprite position getter
-         * @return the current sprite position
-         */
-        virtual Vector2<int> getPos() = 0;
+            /**
+             * @brief Sprite position getter
+             * @return the current sprite position
+             */
+            virtual Vector2<int> getPos() = 0;
 
-        /**
-         * @brief Sprite position setter
-         * @param vecPos the new sprite position
-         */
-        virtual void setPos(Vector2<int> vecPos) = 0;
+            /**
+             * @brief Sprite position setter
+             * @param vecPos the new sprite position
+             */
+            virtual void setPos(Vector2<int> vecPos) = 0;
     };
 }
 #endif //ISPRITE_HPP
