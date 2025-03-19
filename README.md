@@ -13,4 +13,4 @@ Epitech project 'Arcade'
 
 This repository contains the interface that you need to implement for your
 Arcade to be ANAL compliant.  
-Specific instructions and examples can be found [here](./imp_examples.md)
+Specific instructions and examples can be found [here](./imp_examples)

@@ -1,6 +1,7 @@
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
     doxygen_add_docs(doc
+        ./imp_examples.md
         ${CMAKE_CURRENT_SOURCE_DIR}/include
     )
 else()

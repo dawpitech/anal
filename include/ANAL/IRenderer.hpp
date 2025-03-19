@@ -9,10 +9,12 @@
 #ifndef IRENDERER_HPP
     #define IRENDERER_HPP
 
+    #include <memory>
     #include <string>
     #include <vector>
 
     #include "Events.hpp"
+    #include "IModule.hpp"
     #include "ISprite.hpp"
     #include "Vector2.hpp"
 
@@ -27,7 +29,7 @@ namespace anal
     * @brief Interface for game renderer
     * @exception IRenderer::Exception Renderer exception
     */
-    class IRenderer
+    class IRenderer : public IModule
     {
         public:
             IRenderer() = default;
@@ -74,4 +76,6 @@ namespace anal
             virtual void clear() = 0;
     };
 }
+
+extern "C" std::unique_ptr<anal::IRenderer> uwu_entrypoint_renderer(void);
 #endif //IRENDERER_HPP
