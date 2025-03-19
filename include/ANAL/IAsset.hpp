@@ -25,19 +25,19 @@ namespace anal
     class IAsset
     {
         public:
-        IAsset() = default;
-        virtual ~IAsset() = default;
+            IAsset() = default;
+            virtual ~IAsset() = default;
 
-        /**
-         * @brief set the path to the asset texture
-         */
-        virtual void setTexturePath(const std::string&) = 0;
+            /**
+             * @brief set the path to the asset texture
+             */
+            virtual void setTexturePath(const std::string&) = 0;
 
-        /**
-         * @brief set the alternate render of the asset
-         * @param alternateRender the character rendered in place of the texture
-         */
-        virtual void setAlternativeRender(char alternateRender) = 0;
+            /**
+             * @brief set the alternate render of the asset
+             * @param alternateRender the character rendered in place of the texture
+             */
+            virtual void setAlternativeRender(char alternateRender) = 0;
     };
 }
 #endif //IASSET_HPP
