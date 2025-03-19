@@ -6,8 +6,8 @@
 */
 
 // ReSharper disable CppClassCanBeFinal
-#ifndef IRENDER_HPP
-    #define IRENDER_HPP
+#ifndef IRENDERER_HPP
+    #define IRENDERER_HPP
 
     #include <string>
     #include <vector>
@@ -61,7 +61,7 @@ namespace anal
             /**
              * @brief Render the render queues on the window buffer
              * @details Render first the sprite queue, then the text queue
-             * @throw IRender::exception If couldn't render
+             * @throw IRenderer::exception If couldn't render
              */
             virtual void render() = 0;
 
@@ -74,4 +74,4 @@ namespace anal
             virtual void clear() = 0;
     };
 }
-#endif //IRENDER_HPP
+#endif //IRENDERER_HPP
