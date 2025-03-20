@@ -7,7 +7,7 @@
 Here is an example of a minimal implementation of a renderer.  
 It includes the minimal method that should be supported and the shared object entrypoint.
 
-```c++
+```cpp
 #include "IRenderer.hpp"
 
 class ExampleRenderer : public anal::IRenderer
