@@ -20,7 +20,7 @@
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
  */
-namespace anal
+namespace ANAL
 {
     /**
      * @interface IGame
@@ -55,5 +55,5 @@ namespace anal
     };
 }
 
-extern "C" std::unique_ptr<anal::IGame> uwu_entrypoint_game(void);
+extern "C" std::unique_ptr<ANAL::IGame> uwu_entrypoint_game(void);
 #endif //IGAME_HPP

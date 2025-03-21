@@ -15,7 +15,7 @@
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
  */
-namespace anal
+namespace ANAL
 {
     /**
      * @interface IModule
@@ -65,5 +65,5 @@ namespace anal
     };
 }
 
-extern "C" std::unique_ptr<anal::IModule> uwu_entrypoint_module(void);
+extern "C" std::unique_ptr<ANAL::IModule> uwu_entrypoint_module(void);
 #endif //IMODULE_HPP

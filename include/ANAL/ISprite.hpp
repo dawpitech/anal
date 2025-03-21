@@ -11,13 +11,14 @@
 
     #include <utility>
 
-#include "Vector2.hpp"
+    #include "IAsset.hpp"
+    #include "Vector2.hpp"
 
 /**
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
  */
-namespace anal
+namespace ANAL
 {
     /**
      * @interface ISprite
@@ -47,6 +48,18 @@ namespace anal
              * @param vecPos the new sprite position
              */
             virtual void setPos(Vector2<int> vecPos) = 0;
+
+            /**
+             * @brief Sprite asset getter
+             * @return the current sprite asset
+             */
+            virtual IAsset getAsset() = 0;
+
+            /**
+             * @brief Sprite asset setter
+             * @param asset the new sprite asset
+             */
+            virtual void setAsset(IAsset asset) = 0;
     };
 }
 #endif //ISPRITE_HPP

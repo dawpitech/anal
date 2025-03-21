@@ -15,7 +15,7 @@
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
  */
-namespace anal
+namespace ANAL
 {
     /**
      * @interface IAsset
