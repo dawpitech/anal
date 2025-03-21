@@ -55,5 +55,5 @@ namespace anal
     };
 }
 
-extern "C" std::unique_ptr<anal::IGame> uwu_entrypoint_game(void) = delete;
+extern "C" std::unique_ptr<anal::IGame> uwu_entrypoint_game(void);
 #endif //IGAME_HPP
