@@ -15,6 +15,7 @@
 
     #include "Events.hpp"
     #include "IModule.hpp"
+    #include "IRenderer.hpp"
 
 /**
  * @brief Arcade Native Agnostic Layer
@@ -50,8 +51,9 @@ namespace ANAL
 
             /**
              * @brief Render the game to the renderer sprite/text queue
+             * @param renderer Current Renderer that should be used
              */
-            virtual void render() = 0;
+            virtual void render(IRenderer& renderer) = 0;
     };
 }
 
