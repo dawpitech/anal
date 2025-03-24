@@ -9,8 +9,6 @@
 #ifndef IMODULE_HPP
     #define IMODULE_HPP
 
-    #include <memory>
-
 /**
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
@@ -18,52 +16,40 @@
 namespace ANAL
 {
     /**
-     * @interface IModule
-     * @brief Arcade module interface, is mandatory for every shared library loaded
+     * @enum ModuleType
+     * @brief Enum of supported types of Arcade modules
      */
-    class IModule
+    enum class ModuleType
     {
-        public:
-            IModule() = default;
-            virtual ~IModule() = default;
+        UNKNOWN,
+        GAME,
+        RENDERER,
+        OTHER,
+    };
 
-            /**
-             * @enum ModuleType
-             * @brief Enum of supported types of Arcade modules
-             */
-            enum class ModuleType
-            {
-                UNKNOWN,
-                GAME,
-                RENDERER,
-                OTHER,
-            };
-
-            /**
-             * @enum ModuleVersion
-             * @brief Enum of Arcade modules versions
-             * @warning Comparison on the value of the version should ALWAYS be absolute to prevent issue when loading a newer version of module than is supported
-             */
-            enum class ModuleVersion
-            {
-                UNKNOWN,
-                V1_0_0,
-                NOT_SUPPORTED,
-            };
-
-            /**
-             * @brief Access the module type
-             * @return the type of the module
-             */
-            virtual ModuleType getModuleType() = 0;
-
-            /**
-             * @brief Access the module version
-             * @return the version of the module
-             */
-            virtual ModuleVersion getModuleVersion() = 0;
+    /**
+     * @enum ModuleVersion
+     * @brief Enum of Arcade modules versions
+     * @warning Comparison on the value of the version should ALWAYS be absolute to prevent issue when loading a newer version of module than is supported
+     */
+    enum class ModuleVersion
+    {
+        UNKNOWN,
+        V1_0_0,
+        V1_1_0,
+        NOT_SUPPORTED,
     };
 }
 
-extern "C" std::unique_ptr<ANAL::IModule> uwu_entrypoint_module(void);
+/**
+ * @brief Module entrypoint to retrieve version
+ * @return Module version
+ */
+extern "C" ANAL::ModuleVersion uwu_get_module_version(void);
+
+/**
+ * @brief Module entrypoint to retrieve type
+ * @return Module type
+ */
+extern "C" ANAL::ModuleType uwu_get_module_type(void);
 #endif //IMODULE_HPP

@@ -29,7 +29,7 @@ namespace ANAL
     * @brief Interface for game renderer
     * @exception IRenderer::Exception Renderer exception
     */
-    class IRenderer : public IModule
+    class IRenderer
     {
         public:
             IRenderer() = default;

@@ -28,7 +28,7 @@ namespace ANAL
      * @brief Interface describing an Arcade game
      * @exception IGame::Exception
      */
-    class IGame : public IModule
+    class IGame
     {
         public:
             IGame() = default;
