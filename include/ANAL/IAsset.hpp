@@ -43,13 +43,13 @@ namespace ANAL
              * @brief get the path to the asset texture
              * @return the path to the asset texture
              */
-            virtual const std::string& getTexturePath() = 0;
+            virtual const std::string& getTexturePath() const = 0;
 
             /**
              * @brief get the alternate render of the asset
              * @return the alternate render
              */
-            virtual char getAlternativeRender() = 0;
+            virtual char getAlternativeRender() const = 0;
     };
 }
 #endif //IASSET_HPP
