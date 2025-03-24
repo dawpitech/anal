@@ -53,13 +53,13 @@ namespace ANAL
              * @brief Sprite asset getter
              * @return the current sprite asset
              */
-            virtual IAsset getAsset() = 0;
+            virtual IAsset& getAsset() = 0;
 
             /**
              * @brief Sprite asset setter
              * @param asset the new sprite asset
              */
-            virtual void setAsset(IAsset asset) = 0;
+            virtual void setAsset(IAsset& asset) = 0;
     };
 }
 #endif //ISPRITE_HPP
