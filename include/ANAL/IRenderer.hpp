@@ -42,6 +42,12 @@ namespace ANAL
             class Exception : public std::exception {};
 
             /**
+             * @brief Sprite factory
+             * @return an allocated new sprite
+             */
+            virtual std::unique_ptr<ISprite> newSprite() const = 0;
+
+            /**
              * @brief Draw a sprite in the frame buffer
              * @details Add a sprite to the sprite queue that will be rendered to the window buffer on the next render call
              * @param sprite sprite to be rendered; is immutable.
