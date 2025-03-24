@@ -41,7 +41,7 @@ namespace ANAL
              * @brief Sprite position getter
              * @return the current sprite position
              */
-            virtual Vector2<int> getPos() = 0;
+            virtual const Vector2<int>& getPos() const = 0;
 
             /**
              * @brief Sprite position setter
@@ -53,7 +53,7 @@ namespace ANAL
              * @brief Sprite asset getter
              * @return the current sprite asset
              */
-            virtual IAsset& getAsset() = 0;
+            virtual const IAsset& getAsset() const = 0;
 
             /**
              * @brief Sprite asset setter
