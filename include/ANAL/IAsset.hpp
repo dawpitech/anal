@@ -38,6 +38,18 @@ namespace ANAL
              * @param alternateRender the character rendered in place of the texture
              */
             virtual void setAlternativeRender(char alternateRender) = 0;
+
+            /**
+             * @brief get the path to the asset texture
+             * @return the path to the asset texture
+             */
+            virtual const std::string& getTexturePath() = 0;
+
+            /**
+             * @brief get the alternate render of the asset
+             * @return the alternate render
+             */
+            virtual char getAlternativeRender() = 0;
     };
 }
 #endif //IASSET_HPP
