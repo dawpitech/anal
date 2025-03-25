@@ -42,7 +42,7 @@ namespace ANAL
             /**
              * @brief Process the Event send by the Renderer
              */
-            virtual void processEvents(const std::vector<Event>&) = 0;
+            virtual void processEvents(std::vector<Event>&) = 0;
 
             /**
              * @brief Tick the game

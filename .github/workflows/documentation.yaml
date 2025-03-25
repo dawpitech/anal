@@ -24,6 +24,7 @@ jobs:
 
       - name: "Publish documentation to Github Pages"
         uses: JamesIves/github-pages-deploy-action@v4
+        if: false
         with:
           folder: 'build/html'
           target-folder: 'doc/anal'
