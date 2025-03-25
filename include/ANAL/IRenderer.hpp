@@ -14,8 +14,7 @@
     #include <vector>
 
     #include "Events.hpp"
-    #include "IModule.hpp"
-    #include "ISprite.hpp"
+    #include "IEntity.hpp"
     #include "Vector2.hpp"
 
 /**
@@ -42,22 +41,17 @@ namespace ANAL
             class Exception : public std::exception {};
 
             /**
-             * @brief Sprite factory
-             * @return an allocated new sprite
+             * @brief Draw an entity
+             * @details Draw the entity at its current position on the window buffer
+             * @param entity Entity to be rendered; is immutable.
+             * @throw IRenderer::Exception Throw when cannot draw the entity
              */
-            virtual std::unique_ptr<ISprite> newSprite() const = 0;
+            virtual void drawEntity(const IEntity& entity) = 0;
 
             /**
-             * @brief Draw a sprite in the frame buffer
-             * @details Add a sprite to the sprite queue that will be rendered to the window buffer on the next render call
-             * @param sprite sprite to be rendered; is immutable.
-             */
-            virtual void drawSprite(const ISprite& sprite) = 0;
-
-            /**
-             * @brief Draw a text in the frame buffer
-             * @details Add a text to the text queue that will be rendered to the window buffer on the next render call
-             * @note The text render buffer will always be on top of the sprite buffer
+             * @brief Draw a text
+             * @details Draw the text at its current position on the window buffer
+             * @throw IRenderer::Exception Throw when cannot draw the text
              */
             virtual void drawText(const std::string&, Vector2<int>) = 0;
 
@@ -69,7 +63,7 @@ namespace ANAL
             /**
              * @brief Render the render queues on the window buffer
              * @details Render first the sprite queue, then the text queue
-             * @throw IRenderer::exception If couldn't render
+             * @throw IRenderer::Exception If couldn't render
              */
             virtual void render() = 0;
 
@@ -77,11 +71,15 @@ namespace ANAL
 
             /**
              * @brief Clear the entire window in black
-             * @note Act directly on the window buffer, not the sprite/text queue, will not wait for the next render
+             * @note Act directly on the window buffer, will not wait for the next render
              */
             virtual void clear() = 0;
     };
 }
 
+/**
+ * @brief Renderer module entrypoint
+ * @return Unique ptr on a new IRenderer instance
+ */
 extern "C" std::unique_ptr<ANAL::IRenderer> uwu_entrypoint_renderer(void);
 #endif //IRENDERER_HPP

@@ -10,7 +10,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 project(anal
-        VERSION 1.1.0
+        VERSION 1.2.0
         DESCRIPTION "Arcade Native Agnostic Layer"
         LANGUAGES CXX
 )
