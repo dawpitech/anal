@@ -30,7 +30,7 @@ namespace ANAL
             /**
              * @brief Set the path to the asset texture resource file
              */
-            virtual void setTexturePath(const std::pmr::string&) = 0;
+            virtual void setTexturePath(const std::string&) = 0;
 
             /**
              * @brief Get the path to the asset texture resource file
