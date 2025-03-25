@@ -14,7 +14,7 @@
     #include <vector>
 
     #include "Events.hpp"
-    #include "IModule.hpp"
+    #include "IArcade.hpp"
     #include "IRenderer.hpp"
 
 /**
@@ -52,10 +52,15 @@ namespace ANAL
             /**
              * @brief Render the game to the renderer sprite/text queue
              * @param renderer Current Renderer that should be used
+             * @param arcade Arcade core, used to create new Asset or Entity
              */
-            virtual void render(IRenderer& renderer) = 0;
+            virtual void render(IRenderer& renderer, IArcade& arcade) = 0;
     };
 }
 
+/**
+ * @brief Game module entrypoint
+ * @return Unique ptr on a new IGame instance
+ */
 extern "C" std::unique_ptr<ANAL::IGame> uwu_entrypoint_game(void);
 #endif //IGAME_HPP

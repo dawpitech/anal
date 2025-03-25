@@ -18,10 +18,9 @@
 namespace ANAL
 {
     /**
-     * @interface IAsset
-     * @brief Interface to describe an asset
-     * @details Details about an asset, meaning it's texture and alternative render modes
-     */
+    * @interface IAsset
+    * @brief Interface for assets
+    */
     class IAsset
     {
         public:
@@ -29,15 +28,27 @@ namespace ANAL
             virtual ~IAsset() = default;
 
             /**
-             * @brief set the path to the asset texture
+             * @brief Set the path to the asset texture resource file
              */
-            virtual void setTexturePath(const std::string&) = 0;
+            virtual void setTexturePath(const std::pmr::string&) = 0;
 
             /**
-             * @brief set the alternate render of the asset
-             * @param alternateRender the character rendered in place of the texture
+             * @brief Get the path to the asset texture resource file
+             * @return Path to the resource file, can be absolute or relative
              */
-            virtual void setAlternativeRender(char alternateRender) = 0;
+            [[nodiscard]] virtual const std::string& getTexturePath() const = 0;
+
+            /**
+             * @brief Set the alternate render display of the asset
+             * @details This character represent what will be shown if the renderer doesn't support graphical mode
+             */
+            virtual void setAlternateRender(char) = 0;
+
+            /**
+             * @brief Get the alternate render display of the asset
+             * @return The alternate render character
+             */
+            [[nodiscard]] virtual char getAlternateRender() const = 0;
     };
 }
 #endif //IASSET_HPP
