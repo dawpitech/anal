@@ -32,7 +32,7 @@ namespace ANAL
              * @brief Set the entity position
              * @note The rendering is a grid of 10x10, thus the value of any position shouldn't exceed 9 or the entity would be rendered offscreen!
              */
-            virtual void setPos(Vector2<int>) = 0;
+            virtual void setPos(const Vector2<int>&) = 0;
 
             /**
              * @brief Get the current entity position
@@ -43,7 +43,7 @@ namespace ANAL
             /**
              * @brief Set the entity asset used when rendering
              */
-            virtual void setAsset(IAsset &asset) = 0;
+            virtual void setAsset(const IAsset &asset) = 0;
 
             /**
              * @brief Get the current entity asset
