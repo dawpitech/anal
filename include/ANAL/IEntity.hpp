@@ -38,12 +38,12 @@ namespace ANAL
              * @brief Get the current entity position
              * @return The position vector
              */
-            [[nodiscard]] virtual Vector2<int>& getPos() const = 0;
+            [[nodiscard]] virtual const Vector2<int>& getPos() const = 0;
 
             /**
              * @brief Set the entity asset used when rendering
              */
-            virtual void setAsset() = 0;
+            virtual void setAsset(IAsset &asset) = 0;
 
             /**
              * @brief Get the current entity asset
