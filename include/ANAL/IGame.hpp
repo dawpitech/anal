@@ -54,7 +54,7 @@ namespace ANAL
              * @param renderer Current Renderer that should be used
              * @param arcade Arcade core, used to create new Asset or Entity
              */
-            virtual void render(IRenderer& renderer, IArcade& arcade) = 0;
+            virtual void render(IRenderer& renderer, const IArcade& arcade) = 0;
     };
 }
 

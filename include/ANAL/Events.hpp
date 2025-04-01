@@ -8,6 +8,8 @@
 #ifndef EVENTS_HPP
     #define EVENTS_HPP
 
+    #include "Vector2.hpp"
+
 /**
  * @brief Arcade Native Agnostic Layer
  * @details Namespace containing all the standardized interfaces for the Arcade project
@@ -15,54 +17,109 @@
 namespace ANAL
 {
     /**
-     * @enum Event
-     * @brief Enum containing all events that can send the Renderer to the Game
-     * @note The close event might not be sent by every Renderer
-     * @note Keys used in the global context (back to menu, change renderer, etc) will not be sent to the Game
+     * @class Event
+     * @brief Class containing every possible event type
      */
-    enum class Event
+    class Event {};
+
+    /**
+     * @enum Keys
+     * @brief List of keyboard keys supported
+     */
+    enum class Keys
     {
-        PRESSED_KEY_A,
-        PRESSED_KEY_B,
-        PRESSED_KEY_C,
-        PRESSED_KEY_D,
-        PRESSED_KEY_E,
-        PRESSED_KEY_F,
-        PRESSED_KEY_G,
-        PRESSED_KEY_H,
-        PRESSED_KEY_I,
-        PRESSED_KEY_J,
-        PRESSED_KEY_K,
-        PRESSED_KEY_L,
-        PRESSED_KEY_M,
-        PRESSED_KEY_N,
-        PRESSED_KEY_O,
-        PRESSED_KEY_P,
-        PRESSED_KEY_Q,
-        PRESSED_KEY_R,
-        PRESSED_KEY_S,
-        PRESSED_KEY_T,
-        PRESSED_KEY_U,
-        PRESSED_KEY_V,
-        PRESSED_KEY_W,
-        PRESSED_KEY_X,
-        PRESSED_KEY_Y,
-        PRESSED_KEY_Z,
-        PRESSED_KEY_0,
-        PRESSED_KEY_1,
-        PRESSED_KEY_2,
-        PRESSED_KEY_3,
-        PRESSED_KEY_4,
-        PRESSED_KEY_5,
-        PRESSED_KEY_6,
-        PRESSED_KEY_7,
-        PRESSED_KEY_8,
-        PRESSED_KEY_9,
-        PRESSED_KEY_ARROW_RIGHT,
-        PRESSED_KEY_ARROW_LEFT,
-        PRESSED_KEY_ARROW_UP,
-        PRESSED_KEY_ARROW_DOWN,
-        CLOSE, /*!< Close event send by the client, most probably sent by interacting with the close arrow*/
+        KEY_A,
+        KEY_B,
+        KEY_C,
+        KEY_D,
+        KEY_E,
+        KEY_F,
+        KEY_G,
+        KEY_H,
+        KEY_I,
+        KEY_J,
+        KEY_K,
+        KEY_L,
+        KEY_M,
+        KEY_N,
+        KEY_O,
+        KEY_P,
+        KEY_Q,
+        KEY_R,
+        KEY_S,
+        KEY_T,
+        KEY_U,
+        KEY_V,
+        KEY_W,
+        KEY_X,
+        KEY_Y,
+        KEY_Z,
+        KEY_0,
+        KEY_1,
+        KEY_2,
+        KEY_3,
+        KEY_4,
+        KEY_5,
+        KEY_6,
+        KEY_7,
+        KEY_8,
+        KEY_9,
+        ARROW_UP,
+        ARROW_LEFT,
+        ARROW_RIGHT,
+        ARROW_DOWN,
     };
+
+    /**
+     * @enum State
+     * @brief Current state of the key event
+     */
+    enum class State
+    {
+        PRESSED,
+        RELEASED,
+    };
+
+    /**
+     * @enum MouseKeys
+     * @brief List of mouse keys supported
+     */
+    enum class MouseKeys
+    {
+        LEFT_CLICK,
+        MIDDLE_CLICK,
+        RIGHT_CLICK,
+    };
+
+    /**
+     * @class KeyEvent
+     * @brief Event of a keyboard key being pressed
+     * @warning Keys used in the global context (back to menu, change renderer, etc.) will not be sent to the Game
+     */
+    class KeyEvent : public Event
+    {
+        public:
+            Keys key;
+            State state;
+    };
+
+    /**
+     * @class MouseEvent
+     * @brief Event of a mouse key being pressed
+     */
+    class MouseEvent : public Event
+    {
+        public:
+            Vector2<int> coords;
+            MouseKeys key;
+            State state;
+    };
+
+    /**
+     * @class CloseEvent
+     * @brief Event registered when the user asked the game to close
+     * @warning The close event might not be sent by every Renderer
+     */
+    class CloseEvent : public Event {};
 }
 #endif //EVENTS_HPP
