@@ -8,6 +8,8 @@
 #ifndef EVENTS_HPP
     #define EVENTS_HPP
 
+    #include <optional>
+
     #include "Vector2.hpp"
 
 /**
@@ -16,11 +18,13 @@
  */
 namespace ANAL
 {
-    /**
-     * @class Event
-     * @brief Class containing every possible event type
-     */
-    class Event {};
+    enum class EventType
+    {
+        UNKNOWN,
+        KEYBOARD,
+        MOUSE,
+        CLOSE,
+    };
 
     /**
      * @enum Keys
@@ -96,7 +100,7 @@ namespace ANAL
      * @brief Event of a keyboard key being pressed
      * @warning Keys used in the global context (back to menu, change renderer, etc.) will not be sent to the Game
      */
-    class KeyEvent : public Event
+    class KeyEvent
     {
         public:
             Keys key;
@@ -107,7 +111,7 @@ namespace ANAL
      * @class MouseEvent
      * @brief Event of a mouse key being pressed
      */
-    class MouseEvent : public Event
+    class MouseEvent
     {
         public:
             Vector2<int> coords;
@@ -120,6 +124,19 @@ namespace ANAL
      * @brief Event registered when the user asked the game to close
      * @warning The close event might not be sent by every Renderer
      */
-    class CloseEvent : public Event {};
+    class CloseEvent {};
+
+    /**
+     * @class Event
+     * @brief Class containing every possible event type
+     */
+    class Event
+    {
+        public:
+            EventType type = EventType::UNKNOWN;
+            std::optional<KeyEvent> keyEvent;
+            std::optional<MouseEvent> mouseEvent;
+            std::optional<CloseEvent> closeEvent;
+    };
 }
 #endif //EVENTS_HPP
