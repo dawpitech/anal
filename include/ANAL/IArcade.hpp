@@ -22,6 +22,10 @@ namespace ANAL
 
             [[nodiscard]] virtual std::unique_ptr<IAsset> newAsset() const = 0;
             [[nodiscard]] virtual std::unique_ptr<IEntity> newEntity() const = 0;
+
+            [[nodiscard]] virtual const std::string& getPlayerName() const = 0;
+            virtual void setPlayerHighscore(int score) = 0;
+            [[nodiscard]] virtual int getPlayerHighscore(const std::string& playerName) const = 0;
     };
 }
 #endif //IARCADE_HPP
