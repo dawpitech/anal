@@ -46,8 +46,9 @@ namespace ANAL
 
             /**
              * @brief Tick the game
+             * @param arcade Arcade core, used to get/set high score and playername
              */
-            virtual void compute() = 0;
+            virtual void compute(IArcade& arcade) = 0;
 
             /**
              * @brief Render the game to the renderer sprite/text queue
