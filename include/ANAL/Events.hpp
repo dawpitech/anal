@@ -68,6 +68,8 @@ namespace ANAL
         KEY_7,
         KEY_8,
         KEY_9,
+        KEY_ENTER,
+        KEY_SPACE,
         ARROW_UP,
         ARROW_LEFT,
         ARROW_RIGHT,
