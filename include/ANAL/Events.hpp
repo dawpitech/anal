@@ -70,6 +70,7 @@ namespace ANAL
         KEY_9,
         KEY_ENTER,
         KEY_SPACE,
+        KEY_BACKSPACE,
         ARROW_UP,
         ARROW_LEFT,
         ARROW_RIGHT,
