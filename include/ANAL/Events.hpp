@@ -20,15 +20,16 @@ namespace ANAL
 {
     enum class EventType
     {
-        UNKNOWN,
-        KEYBOARD,
-        MOUSE,
-        CLOSE,
+         UNKNOWN /** Abnormal state, may indicate an unknown library issue */
+        ,KEYBOARD /** Keyboard Key pressed, can safely use the value of ANAL::Event::keyEvent */
+        ,MOUSE /** Mouse button pressed, can safely use the value of ANAL::Event::mouseEvent */
+        ,CLOSE /** User requested the game to close, no further info given */
     };
 
     /**
      * @enum Keys
      * @brief List of keyboard keys supported
+     * @warning Not all renderers support numerical keys (0-9)
      */
     enum class Keys
     {
@@ -80,8 +81,8 @@ namespace ANAL
      */
     enum class State
     {
-        PRESSED,
-        RELEASED,
+         PRESSED /** The key was just pressed or is held down */
+        ,RELEASED /** The key was just released */
     };
 
     /**
@@ -114,7 +115,7 @@ namespace ANAL
     class MouseEvent
     {
         public:
-            Vector2<int> coords;
+            Vector2<int> coords; /** Coords of the mouse click in cells (0-31 by 0-31). */
             MouseKeys key;
             State state;
     };
